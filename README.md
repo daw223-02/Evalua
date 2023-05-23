@@ -16,9 +16,9 @@ INSTALACIÓN
             database: 'evalua2',
     });
 
-- cambiar las direcciones ip de client/services
+- cambiar las direcciones ip de client/src/app/services/alumnos.service.ts
     API_URI = 'http://[IP_Propia]:3000';
-    LOG_URI = 'http://[IP_Propia]:4200';
+    LOG_URI = 'http://[IP_Propia]:80';
 
 - modificar en caso de necesitarlo el .sql con los scripts finales
 
