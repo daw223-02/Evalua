@@ -1,0 +1,51 @@
+#tableSave{
+    overflow-x: auto;
+}
+
+.margins{
+    margin: 2em;
+}
+
+#calificar{
+    padding: 2em;
+    width: 70%; 
+    text-align: center; 
+    border-radius: 20px 20px 20px 20px; 
+    border: 2px solid #0ea8a1;
+}
+#imprimir{
+    padding: 2em;
+    width: 70%; 
+    text-align: center; 
+    border-radius: 20px 20px 20px 20px; 
+    border: 2px solid #0ea8a1;
+}
+
+.backgronfColorButton{
+    background-color: #fca577;
+}
+
+.botonCurso{
+    background-color: #ECECEC;
+    color: black;
+}
+.botonCurso:hover{
+    box-shadow: 0px 1px 5px #ECECEC;
+}
+
+.btn-danger{
+    background-color: #f36038;
+}
+
+.curso{
+ background-color: #fca577;
+ color: white;
+}
+
+@page {
+    size: A4;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

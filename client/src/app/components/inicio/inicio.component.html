@@ -1,0 +1,59 @@
+<app-navigation-inicio></app-navigation-inicio>
+
+<div>
+    <div class="grid">
+        <div class=" mt-5 bienvenida">
+            <h1>Bienvenido a Evalúa</h1>
+            <div class="card text-white mb-3 mt-4" style="max-width: 25rem; width: 25rem; height: 20rem;">
+                <!-- <div class="card-header">Header</div> -->
+                <div class="card-body" style="display: flex; justify-content: center; align-items: center;">
+                  <!-- <h4 class="card-title">Primary card title</h4> -->
+                  <h5 class="card-text" style="text-align: center;">Evalúa es una herramienta pensada para profesores/as que quieren darle un cambio a la evaluación de sus alumnos</h5>
+                </div>
+            </div>
+            
+        </div>
+        <div class="container formulario">
+            <form>
+                <fieldset>
+                  <legend>Inicia Sesión</legend>
+                  <div class="form-group row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">Usuario</label>
+                    <div class="col-sm-10">
+                      <input type="text" readonly="" class="form-control-plaintext" id="staticEmail" value="[Nombre elegido al registrarse]">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1" class="form-label mt-4">Usuario</label>
+                    <input type="email" [formControl]="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Introduzca usuario">
+                    <small id="emailHelp" class="form-text text-muted">Nunca compartiremos su usuario con terceros</small>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1" class="form-label mt-4">Contraseña</label>
+                    <input type="password" [formControl]="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+                  </div>
+                  <small id="emailHelp" class="form-text text-muted">Todavía no tiene una cuenta? -> <a href="/registrarse">Registrese</a></small>
+                </fieldset>
+            </form>
+            <div class="d-grid gap-2" style="margin-top: 2em;">
+                <button (click)="iniciaSesion()" class="btn btn-lg" style="width: 100%;" type="button">Entrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <footer class="py-3 my-4">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+        </ul>
+        <p class="text-center text-muted">© 2022 Company, Inc</p>
+    </footer>
+</div>
+
+
+<router-outlet></router-outlet>

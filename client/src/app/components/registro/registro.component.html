@@ -1,0 +1,30 @@
+<app-navigation-inicio></app-navigation-inicio>
+
+<div class="container my-4">
+    <form>
+        <fieldset>
+            <legend>REGISTRO</legend>
+            <div class="form-group">
+                *<input type="text" class="form-control" [formControl]="user" aria-describedby="emailHelp" required placeholder="Usuario">
+            </div>
+            <div class="form-group">
+                *<input type="email" class="form-control" [formControl]="email" aria-describedby="emailHelp" required placeholder="Correo">
+                <small id="emailHelp" class="form-text text-muted">Nunca utilizaremos su correo para terceros</small>
+            </div>
+            <div class="form-group">
+                *<input type="password" class="form-control" [formControl]="password" aria-describedby="emailHelp" required="true" placeholder="Contraseña">
+            </div>
+            <div class="form-group">
+                *<input type="password" class="form-control" [formControl]="verifyPassword" aria-describedby="emailHelp" required placeholder="Repita Contraseña">
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" [formControl]="tlf" aria-describedby="emailHelp" placeholder="Telefono">
+            </div>
+            <div class="d-grid gap-2" style="margin-top: 2em;">
+                <button (click)="registrar()" class="btn btn-lg" style="width: 100%;" type="button">Registrarme</button>
+            </div>
+        </fieldset>
+    </form>
+    
+
+</div>

@@ -1,0 +1,49 @@
+<app-navigation></app-navigation>
+<div class="contenedorPrincipal">
+    <table class="table table-striped alumnos">
+        <tr class="header" style="text-align: center; ">
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Nombre Familiar</th>
+            <th>Apellido 1</th>
+            <th>Apellido 2</th>
+            <th>Direccion</th>
+            <th>Telefono 1</th>
+            <th>Telefono 2</th>
+            <th>Email</th>
+            <th>Observaciones</th>
+        </tr>
+        <tr class="trAlumnos" *ngFor="let alumno of alumnos" style="text-align: center;">
+            <td>
+                {{alumno.Nombre}}
+            </td>
+            <td>
+                {{alumno.Apellidos}}
+            </td>
+            <td>
+                {{alumno.Nombre_Familiar1}}
+            </td>
+            <td>
+                {{alumno.PrimerApellido_Familiar1}}
+            </td>
+            <td>
+                {{alumno.SegundoApellido_Familiar1}}
+            </td>
+            <td>
+                {{alumno.Direccion}}
+            </td>
+            <td>
+                {{alumno.Telefono1}}
+            </td>
+            <td>
+                {{alumno.Telefono2}}
+            </td>
+            <td>
+                {{alumno.Email}}
+            </td>
+            <td>
+                {{alumno.Observaciones}}
+            </td>
+        </tr>
+    </table>
+</div>

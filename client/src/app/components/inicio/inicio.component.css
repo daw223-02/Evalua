@@ -1,0 +1,28 @@
+.grid{
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+}
+
+.container{
+    display: flex;
+    
+    flex-direction: column;
+
+    padding: 5em;
+}
+
+.bienvenida{
+    justify-self: center; padding: 3em;
+}
+
+.card{
+    background-color: #fca577;
+}
+
+
+button{
+    background-color: #fca577;
+}
+button:hover{
+    box-shadow: 0px 1px 15px #fca577;
+}
