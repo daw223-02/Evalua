@@ -33,3 +33,8 @@ INSTALACIÓN
 
 - modificar el script de dockerfile.server en caso de necesitarlo
     CMD [ "npm", "run", "dev" ]
+    
+- habilitar permisos de ejecución para el archivo ejecucion.bash
+    chmod +x ejecucion.bash
+   
+- ejecutar el archivo anterior: ./ejecucion.bash
