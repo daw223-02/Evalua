@@ -38,3 +38,5 @@ INSTALACIÓN
     chmod +x ejecucion.bash
    
 - ejecutar el archivo anterior: ./ejecucion.bash
+
+- Si los contenedores se han parado, ejecutar el archivo: ./upContainers.bash
