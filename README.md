@@ -16,9 +16,9 @@ INSTALACIÓN
             database: 'evalua2',
     });
 
-- cambiar las direcciones ip de client/services
+- cambiar las direcciones ip de client/src/app/services/alumnos.service.ts
     API_URI = 'http://[IP_Propia]:3000';
-    LOG_URI = 'http://[IP_Propia]:4200';
+    LOG_URI = 'http://[IP_Propia]:80';
 
 - modificar en caso de necesitarlo el .sql con los scripts finales
 
@@ -33,3 +33,10 @@ INSTALACIÓN
 
 - modificar el script de dockerfile.server en caso de necesitarlo
     CMD [ "npm", "run", "dev" ]
+    
+- habilitar permisos de ejecución para el archivo ejecucion.bash
+    chmod +x ejecucion.bash
+   
+- ejecutar el archivo anterior: ./ejecucion.bash
+
+- Si los contenedores se han parado, ejecutar el archivo: ./upContainers.bash

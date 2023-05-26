@@ -95,6 +95,12 @@ export class AlumnosService {
     return this.http.post(`${this.API_URI}/getStudentsSubject`,filtro);
   }
 
+  // PROBAR
+
+  createNotaDos(filtro:any){
+    return this.http.post(`${this.API_URI}/createNotaDos`,filtro);
+  }
+
   writeTableCalifications(content:any){
     return this.http.post(`${this.API_URI}/writeTableCalifications`,content);
   }

@@ -12,4 +12,8 @@ docker start server
 echo "Ejecutando el contenedor del frontend..."
 docker start client
 
+<<<<<<< HEAD
 echo "Contenedores levantados!!"
+=======
+echo "Contenedores levantados!!"
+>>>>>>> 45dfc254b354a1754b826e176b066dcad8939db6

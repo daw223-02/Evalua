@@ -85,7 +85,7 @@ export class CalificacionesComponent {
         if (res == 'No existe ninguna nota por el momento') {
           alert(res);
         } else {
-          console.log(res);
+          console.log('esta '+res);
 
           let notas: any = res;
           let nota: any = [];
@@ -143,11 +143,11 @@ export class CalificacionesComponent {
           td.style.borderRadius = 10 + 'px';
           td.addEventListener('click', () => {
 
-            let actualizar = true;
+            // let actualizar = true;
 
             this.finalCalification = 0;
 
-            this.selectedRubrica(td, actualizar);
+            this.selectedRubrica(td, true);
 
           })
           calificatios[(i - 1)].append(td);
@@ -719,7 +719,7 @@ export class CalificacionesComponent {
             let nombre = td.className.split(',')[0]
             console.log('soy td ' + nombre);
 
-            this.selectedRubrica(td);
+            this.selectedRubrica(td, true);
 
 
           })
@@ -748,8 +748,8 @@ export class CalificacionesComponent {
           td.addEventListener('click', () => {
             let nombre = td.className.split(',')[0]
             console.log('soy td ' + nombre);
-
-            this.selectedRubrica(td);
+            this.finalCalification = 0;
+            this.selectedRubrica(td, true);
 
           })
 
@@ -941,6 +941,7 @@ export class CalificacionesComponent {
                               console.log(res)
 
                               this.createTableCalifications(NewNameRubrica);
+                              this.crearNotasDefecto(NewNameRubrica)
                             },
                             err => {
                               console.log(err);
@@ -957,6 +958,7 @@ export class CalificacionesComponent {
 
                   } else {
                     this.createTableCalifications(nombre);
+                    this.crearNotasDefecto(nombre)
                   }
                 }
               )
@@ -1042,10 +1044,12 @@ export class CalificacionesComponent {
       Curso: this.cookies.get('curso'),
       id_Profesor: this.idProfesor
     }
-
+    
     this.alumnosService.saveThatRubrica(rubrica).subscribe(
       res => {
-        console.log(res)
+        console.log(res);
+
+        this.crearNotasDefecto(div.className)
       },
       err => {
         console.log(err);
@@ -1054,7 +1058,29 @@ export class CalificacionesComponent {
     )
   }
 
-  selectedRubrica(tdSelecionado: any, actualizar?: boolean) {
+  // CREAR LA RÚBRICA PROBAR
+  crearNotasDefecto(nombreRubrica: any){
+    const nota = {
+      Nombre_Alumnos: this.students,
+      Nota: 0,
+      Nombre_Calificacion: nombreRubrica,
+      Asignatura: this.cookies.get('asignatura'),
+      id_Profesor: this.idProfesor,
+      Curso: this.cookies.get('curso')
+    }
+
+    //Crea una nueva nota
+    this.alumnosService.createNotaDos(nota).subscribe(
+      res => {
+        alert('Nota creada correctamente')
+      },
+      err => {
+
+      }
+    )
+  }
+
+  selectedRubrica(tdSelecionado: any, actualizar: boolean) {
     const notaAntigua = tdSelecionado.textContent
 
 
@@ -1119,24 +1145,24 @@ export class CalificacionesComponent {
 
               //CREAR NOTA PARA EL ALUMNO
 
-              const nota = {
-                Nombre_Alumnos: tdSelecionado.className.split(',')[1],
-                Nota: total,
-                Nombre_Calificacion: tdSelecionado.className.split(',')[0],
-                Asignatura: this.cookies.get('asignatura'),
-                id_Profesor: this.idProfesor,
-                Curso: this.cookies.get('curso')
-              }
+              // const nota = {
+              //   Nombre_Alumnos: tdSelecionado.className.split(',')[1],
+              //   Nota: total,
+              //   Nombre_Calificacion: tdSelecionado.className.split(',')[0],
+              //   Asignatura: this.cookies.get('asignatura'),
+              //   id_Profesor: this.idProfesor,
+              //   Curso: this.cookies.get('curso')
+              // }
 
-              //Crea una nueva nota
-              this.alumnosService.createNota(nota).subscribe(
-                res => {
-                  alert('Nota creada correctamente')
-                },
-                err => {
+              // //Crea una nueva nota
+              // this.alumnosService.createNota(nota).subscribe(
+              //   res => {
+              //     alert('Nota creada correctamente')
+              //   },
+              //   err => {
 
-                }
-              )
+              //   }
+              // )
             } else {
 
               dialogs[4].close()

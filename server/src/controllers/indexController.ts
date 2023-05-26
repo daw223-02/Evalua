@@ -125,6 +125,22 @@ class IndexController {
         });
     }
 
+    // public async getStudentsSubjectCourse(req:Request, res:Response){
+    //     console.log(req.body);
+    //     await connect.query('SELECT Nombre_alumnos FROM asignaturas WHERE Nombre_curso=? AND Nombre=? AND id_Profesor=?',[req.body.Curso, req.body.Asignatura, req.body.id_Profesor], 
+    //     (err, rows, field) => {
+    //         if(!err){
+    //             if(rows.length > 0) {
+    //                 res.json(rows);
+    //             }else{
+    //                 res.json('No existe ningun alumno');
+    //             }
+    //         }else{
+    //             console.log(err);
+    //         }
+    //     });
+    // }
+
     public async writeTableCalifications(req:Request, res:Response){
         const alumnos = req.body.Nombre_alumnos.split(',')
         // await connect.query('INSERT INTO asignaturas VALUES (? , ?)',[req.body]);
@@ -174,6 +190,34 @@ class IndexController {
             res.json({mensaje: "nota añadida correctamente"});
         }
     }
+
+    // public async createNotaDos(req:Request, res:Response){
+
+    //     for (let i = 0; i < req.body.Nombre_Alumnos.length; i++) {
+    //         await connect.query('INSERT INTO notas (Nombre_Alumnos, Nota, Nombre_Calificacion, Asignatura, Curso, id_Profesor) VALUES (?, ?, ?, ?, ?, ?)', [req.body.Nombre_Alumnos[i], req.body.Nota, req.body.Nombre_Calificacion, req.body.Asignatura, req.body.Curso, req.body.id_Profesor]);
+    //         if(res){
+    //             res.json({mensaje: "nota actualizada dos correctamente"});
+    //         }
+    //     }
+    // }
+
+    public async createNotaDos(req: Request, res: Response) {
+        const { Nombre_Alumnos, Nota, Nombre_Calificacion, Asignatura, Curso, id_Profesor } = req.body;
+    
+        try {
+            const insertPromises = Nombre_Alumnos.map(async (alumno: string) => {
+                await connect.query('INSERT INTO notas (Nombre_Alumnos, Nota, Nombre_Calificacion, Asignatura, Curso, id_Profesor) VALUES (?, ?, ?, ?, ?, ?)', [alumno, Nota, Nombre_Calificacion, Asignatura, Curso, id_Profesor]);
+            });
+    
+            await Promise.all(insertPromises);
+    
+            res.json({ mensaje: "nota actualizada dos correctamente" });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ error: "Ocurrió un error al crear la nota" });
+        }
+    }
+    
 
     public async searchNotas(req:Request, res:Response){
         await connect.query('SELECT Nota FROM notas WHERE Curso=? AND id_Profesor=? AND Asignatura=? AND Nombre_Calificacion=? AND Nombre_Alumnos',[req.body.Curso, req.body.id_Profesor, req.body.Asignatura, req.body.Nombre_Calificacion, req.body.NombreAlumnos], 

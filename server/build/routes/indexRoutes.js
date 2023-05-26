@@ -27,6 +27,7 @@ class IndexRoutes {
         this.router.post('/updateNotas', indexController_1.indexController.updateNotas);
         this.router.post('/getRurbicasNotas', indexController_1.indexController.getRurbicasNotas);
         this.router.post('/getRubricas', indexController_1.indexController.getRubricas);
+        this.router.post('/createNotaDos', indexController_1.indexController.createNotaDos);
     }
 }
 const indexRoutes = new IndexRoutes();
